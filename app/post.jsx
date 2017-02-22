@@ -12,11 +12,11 @@ class FetchDemo extends React.Component {
   }
 
   componentDidMount() {
-      let url = `http://www.reddit.com/r/${this.props.subreddit}.json`
-      fetch(url).then(response => response.json())
+    let url = `http://www.reddit.com/r/${this.props.subreddit}.json`
+    fetch(url).then(response => response.json())
       .then(res => {
-          const posts = res.data.children.map(obj => obj.data);
-          this.setState({ posts });
+        const posts = res.data.children.map(obj => obj.data);
+        this.setState({ posts });
       })
       .catch(e => console.log("Oops, error", e))
   }
@@ -36,6 +36,6 @@ class FetchDemo extends React.Component {
 }
 
 ReactDOM.render(
-  <FetchDemo subreddit="reactjs"/>,
+  <FetchDemo subreddit="reactjs" />,
   document.getElementById('_react-content')
 );
